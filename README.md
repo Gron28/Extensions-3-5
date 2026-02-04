@@ -19,6 +19,7 @@ I intentionally avoided gamification or dopaministic design. The interface is st
 1. **Work Cycle** (3 hours)
 2. **Body Activation** (10-15 mins)
 3. **Rest** (30-60 mins)
+
 *Repeat 2 or 3 times daily.*
 
 ## Structure
