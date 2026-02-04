@@ -1,0 +1,183 @@
+/* --- Variables --- */
+
+.martial-icon {
+    color: #e4e4e7; /* Neutral light grey/white */
+    font-size: 16px;
+    margin: 0 4px;
+    /* No text-shadow for minimalism */
+}
+
+/* --- Menu Container --- */
+.martial-tracker-card {
+    background-color: #09090b;
+    border: 1px solid #27272a;
+    border-radius: 12px;
+    padding: 16px;
+    spacing: 12px;
+    min-width: 200px;
+}
+
+/* --- Header --- */
+.martial-header {
+    spacing: 12px;
+}
+
+.martial-month-name {
+    font-size: 13px;
+    font-weight: 800;
+    color: #e4e4e7;
+    padding-top: 2px;
+}
+
+.martial-nav-arrow {
+    color: #71717a;
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    padding: 2px 8px;
+}
+
+.martial-nav-arrow:hover {
+    color: #ffffff;
+}
+
+/* --- Button --- */
+.martial-start-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid #3f3f46;
+    color: #a1a1aa;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.martial-start-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid #ffffff;
+    color: #ffffff;
+}
+
+/* --- Vis Stack --- */
+.martial-vis-stack {
+    spacing: 0px;
+    margin-top: 12px;
+}
+
+/* --- Week View (Skyline) --- */
+.martial-week-row {
+    spacing: 4px;
+    height: 80px;
+}
+
+.martial-week-col {
+    width: 16px;
+    spacing: 3px;
+}
+
+/* Blocks in the skyline */
+.martial-block {
+    width: 16px;
+    height: 16px;
+    background-color: #71717a; /* Neutral Grey */
+    border-radius: 2px;
+}
+
+.martial-block-active {
+    background-color: #ffffff; /* White */
+}
+
+/* --- Labels --- */
+.martial-labels-row {
+    spacing: 4px;
+    margin-bottom: 6px;
+    margin-top: 6px;
+}
+
+.martial-lbl {
+    width: 16px;
+    font-size: 9px;
+    font-weight: 700;
+    color: #71717a;
+    text-align: center;
+}
+
+/* --- Month Grid --- */
+.martial-month-grid {
+    spacing: 4px;
+}
+
+.martial-month-row {
+    spacing: 4px;
+}
+
+.martial-day-cell {
+    width: 16px;
+    height: 16px;
+    border-radius: 2px;
+    background-color: #18181b;
+}
+
+/* Levels - Neutral Scale */
+.martial-level-0 { background-color: #18181b; }
+.martial-level-1 { background-color: #3f3f46; }
+.martial-level-2 { background-color: #71717a; }
+.martial-level-3 { background-color: #a1a1aa; }
+.martial-level-4 { background-color: #ffffff; }
+
+.martial-day-today {
+    border: 1px solid #ffffff;
+}
+
+.martial-day-empty {
+    background-color: transparent;
+}
+
+/* Progress Bar (Global) - Minimalist Scarlet */
+.martial-progress-container {
+    height: 4px; /* Thinner */
+    z-index: 999999;
+    spacing: 2px;
+}
+
+.martial-progress-segment {
+    background-color: #27272a;
+}
+
+.martial-progress-fill {
+    background-color: #DC143C; /* Crimson, but flat */
+}
+
+/* --- Completion Dialog --- */
+.martial-confirm-box {
+    spacing: 10px;
+}
+
+.martial-confirm-btn {
+    width: 100px;
+    padding: 8px;
+    border-radius: 6px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.btn-yes {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid #3f3f46;
+    color: #ffffff;
+}
+.btn-yes:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid #ffffff;
+    color: #ffffff;
+}
+.btn-no {
+    background-color: #27272a;
+    color: #a1a1aa;
+}
+.btn-no:hover {
+    background-color: #3f3f46;
+    color: #e4e4e7;
+}

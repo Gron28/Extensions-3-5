@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { 
+            margin: 0; 
+            padding: 0; 
+            overflow: hidden; 
+            background: transparent; 
+            height: 8px;
+            font-family: 'Space Mono', monospace;
+        }
+        button, input, select, textarea { font-family: inherit; }
+        .bar { 
+            display: flex; 
+            width: 100vw; 
+            height: 4px; 
+            position: absolute; 
+            left: 0; 
+        }
+        #bodyBar { top: 0; gap: 2px; }
+        #workBar { top: 0; }
+        .segment { flex: 1; background-color: rgba(39, 39, 42, 0.5); position: relative; }
+        .fill { height: 100%; width: 0%; }
+        #bodyBar .fill { background-color: #DC143C; }
+        #workBar .fill { background-color: #001489; }
+    </style>
+</head>
+<body>
+    <div class="bar" id="bodyBar" style="display: none;">
+        <div class="segment"><div class="fill" id="bodyFill0"></div></div>
+        <div class="segment"><div class="fill" id="bodyFill1"></div></div>
+        <div class="segment"><div class="fill" id="bodyFill2"></div></div>
+        <div class="segment"><div class="fill" id="bodyFill3"></div></div>
+        <div class="segment"><div class="fill" id="bodyFill4"></div></div>
+    </div>
+    <div class="bar" id="workBar" style="display: none;">
+        <div class="fill" id="workFill" style="width: 0%;"></div>
+    </div>
+    <script>
+        const { ipcRenderer } = require('electron');
+        ipcRenderer.on('set-progress', (event, { type, progress }) => {
+            if (type === 'body') {
+                const bar = document.getElementById('bodyBar');
+                if (progress > 0) {
+                    bar.style.display = 'flex';
+                    const segP = progress * 5;
+                    for (let i = 0; i < 5; i++) {
+                        const f = document.getElementById(`bodyFill${i}`);
+                        f.style.width = segP >= i + 1 ? '100%' : (segP > i ? `${(segP - i) * 100}%` : '0%');
+                    }
+                } else {
+                    bar.style.display = 'none';
+                }
+            } else {
+                const bar = document.getElementById('workBar');
+                const fill = document.getElementById('workFill');
+                if (progress > 0) {
+                    bar.style.display = 'block';
+                    fill.style.width = `${progress * 100}%`;
+                } else {
+                    bar.style.display = 'none';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

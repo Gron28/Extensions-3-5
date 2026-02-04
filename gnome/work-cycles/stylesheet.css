@@ -1,0 +1,161 @@
+/* --- Variables (Approximate for GJS) --- */
+
+.cycle-icon {
+    color: #e4e4e7;
+    font-size: 16px;
+    margin: 0 4px;
+}
+
+.cycle-tracker-card {
+    background-color: #09090b;
+    border: 1px solid #27272a;
+    border-radius: 12px;
+    padding: 16px;
+    spacing: 12px;
+    min-width: 200px;
+}
+
+/* --- Header --- */
+.cycle-header {
+    spacing: 12px;
+}
+
+.cycle-month-name {
+    font-size: 13px;
+    font-weight: 800;
+    color: #e4e4e7;
+    padding-top: 2px;
+}
+
+.cycle-nav-arrow {
+    color: #71717a;
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    padding: 2px 8px;
+}
+
+.cycle-nav-arrow:hover {
+    color: #ffffff;
+}
+
+/* --- Button --- */
+.cycle-start-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid #3f3f46;
+    color: #a1a1aa;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.cycle-start-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid #ffffff;
+    color: #ffffff;
+}
+
+/* --- Vis Stack --- */
+.cycle-vis-stack {
+    spacing: 0px;
+    margin-top: 12px;
+}
+
+/* --- Week View (Skyline) --- */
+.cycle-week-row {
+    spacing: 4px;
+    height: 80px;
+}
+
+.cycle-week-col {
+    width: 16px;
+    spacing: 3px;
+}
+
+/* Blocks in the skyline */
+.cycle-block {
+    width: 16px;
+    height: 16px;
+    background-color: #71717a; /* Neutral Grey */
+    border-radius: 2px;
+}
+
+.cycle-block-active {
+    background-color: #ffffff; /* White */
+}
+
+/* --- Labels --- */
+.cycle-labels-row {
+    spacing: 4px;
+    margin-bottom: 6px;
+    margin-top: 6px;
+}
+
+.cycle-lbl {
+    width: 16px;
+    font-size: 9px;
+    font-weight: 700;
+    color: #71717a;
+    text-align: center;
+}
+
+/* --- Month Grid --- */
+.cycle-month-grid {
+    spacing: 4px;
+}
+
+.cycle-month-row {
+    spacing: 4px;
+}
+
+.cycle-day-cell {
+    width: 16px;
+    height: 16px;
+    border-radius: 2px;
+    background-color: #18181b;
+}
+
+/* Levels - Neutral Scale */
+.cycle-level-0 {
+    background-color: #18181b;
+}
+
+.cycle-level-1 {
+    background-color: #3f3f46;
+}
+
+.cycle-level-2 {
+    background-color: #71717a;
+}
+
+.cycle-level-3 {
+    background-color: #a1a1aa;
+}
+
+.cycle-level-4 {
+    background-color: #ffffff;
+}
+
+.cycle-day-today {
+    border: 1px solid #ffffff;
+}
+
+.cycle-day-empty {
+    background-color: transparent;
+}
+
+/* Progress Bar (Global) - Minimalist Blue */
+.cycle-progress-bar {
+    background-color: #001489;
+    height: 4px;
+    z-index: 999999;
+}
+
+/* Dev Tools */
+.cycle-dev-box {
+    margin-top: 20px;
+    spacing: 5px;
+}

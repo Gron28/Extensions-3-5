@@ -1,0 +1,38 @@
+{
+  "name": "activation-suite",
+  "version": "1.0.0",
+  "description": "Body Activation and Work Cycles tracker for Windows",
+  "author": "gron",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win portable",
+    "build:installer": "electron-builder --win nsis"
+  },
+  "devDependencies": {
+    "electron": "^34.0.2",
+    "electron-builder": "^24.13.3",
+    "jimp": "^1.6.0"
+  },
+  "build": {
+    "appId": "com.gron.activation-suite",
+    "productName": "Activation Suite",
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        }
+      ]
+    },
+    "portable": {
+      "artifactName": "ActivationSuite.exe"
+    },
+    "files": [
+      "src/**/*",
+      "package.json"
+    ],
+    "asar": true,
+    "compression": "maximum"
+  }
+}

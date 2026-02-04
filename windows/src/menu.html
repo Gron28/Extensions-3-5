@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Space Mono', monospace;
+            background-color: transparent;
+            overflow: hidden;
+            color: #e4e4e7;
+        }
+
+        button, input, select, textarea {
+            font-family: inherit;
+        }
+
+        .martial-tracker-card {
+            background-color: #09090b;
+            border: 1px solid #27272a;
+            border-radius: 12px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 280px;
+            box-sizing: border-box;
+        }
+
+        .martial-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .martial-month-name {
+            font-size: 13px;
+            font-weight: 800;
+            color: #e4e4e7;
+        }
+
+        .martial-nav-arrow {
+            color: #71717a;
+            background-color: transparent;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .martial-nav-arrow:hover {
+            color: #ffffff;
+        }
+
+        .martial-start-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid #3f3f46;
+            color: #a1a1aa;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 800;
+            cursor: pointer;
+        }
+
+        .martial-start-btn:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid #ffffff;
+            color: #ffffff;
+        }
+
+        .martial-vis-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            margin-top: 12px;
+        }
+
+        .martial-week-row {
+            display: flex;
+            justify-content: center;
+            gap: 4px;
+            height: 80px;
+            align-items: flex-end;
+        }
+
+        .martial-week-col {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            width: 16px;
+        }
+
+        .martial-block {
+            width: 16px;
+            height: 16px;
+            background-color: #71717a;
+            border-radius: 2px;
+        }
+
+        .martial-block-active {
+            background-color: #ffffff;
+        }
+
+        .martial-labels-row {
+            display: flex;
+            justify-content: center;
+            gap: 4px;
+            margin: 6px 0;
+        }
+
+        .martial-lbl {
+            width: 16px;
+            font-size: 9px;
+            font-weight: 700;
+            color: #71717a;
+            text-align: center;
+        }
+
+        .martial-month-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            align-items: center;
+        }
+
+        .martial-month-row {
+            display: flex;
+            gap: 4px;
+        }
+
+        .martial-day-cell {
+            width: 16px;
+            height: 16px;
+            border-radius: 2px;
+            background-color: #18181b;
+            cursor: pointer;
+        }
+
+        .martial-level-0 { background-color: #18181b; }
+        .martial-level-1 { background-color: #3f3f46; }
+        .martial-level-2 { background-color: #71717a; }
+        .martial-level-3 { background-color: #a1a1aa; }
+        .martial-level-4 { background-color: #ffffff; }
+
+        .martial-day-today {
+            border: 1px solid #ffffff;
+        }
+
+        .martial-day-empty {
+            background-color: transparent;
+            cursor: default;
+        }
+
+        .martial-confirm-box {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .martial-confirm-btn {
+            width: 100px;
+            padding: 8px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .btn-yes {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid #3f3f46;
+            color: #ffffff;
+        }
+        .btn-yes:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid #ffffff;
+        }
+        .btn-no {
+            background-color: #27272a;
+            color: #a1a1aa;
+        }
+        .btn-no:hover {
+            background-color: #3f3f46;
+            color: #e4e4e7;
+        }
+
+        #routineBox {
+            text-align: center;
+            margin: 10px 0;
+        }
+        #roundLabel {
+            color: #ff4d6d;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 20px;
+            height: 20px;
+            background: transparent;
+            border: none;
+            color: #71717a;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+        }
+        .close-btn:hover {
+            color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .martial-tracker-card {
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="martial-tracker-card">
+        <button class="close-btn" id="closeBtn">×</button>
+        <div class="martial-header">
+            <button class="martial-nav-arrow" id="prevBtn">‹</button>
+            <span class="martial-month-name" id="monthLabel">...</span>
+            <button class="martial-nav-arrow" id="nextBtn">›</button>
+        </div>
+
+        <button class="martial-start-btn" id="startBtn">Start Activation</button>
+
+        <div id="routineBox" style="display: none;">
+            <div id="roundLabel">1/5</div>
+        </div>
+
+        <div class="martial-confirm-box" id="confirmBox" style="display: none;">
+            <button class="martial-confirm-btn btn-yes" id="yesBtn">Complete</button>
+            <button class="martial-confirm-btn btn-no" id="noBtn">Discard</button>
+        </div>
+
+        <div class="martial-vis-stack">
+            <div class="martial-week-row" id="weekRow"></div>
+            <div class="martial-labels-row">
+                <div class="martial-lbl">M</div>
+                <div class="martial-lbl">T</div>
+                <div class="martial-lbl">W</div>
+                <div class="martial-lbl">T</div>
+                <div class="martial-lbl">F</div>
+                <div class="martial-lbl">S</div>
+                <div class="martial-lbl">S</div>
+            </div>
+            <div class="martial-month-grid" id="monthGrid"></div>
+        </div>
+    </div>
+
+    <script src="menu.js"></script>
+</body>
+</html>

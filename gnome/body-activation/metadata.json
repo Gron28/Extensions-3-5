@@ -1,0 +1,9 @@
+{
+  "name": "Body Activation",
+  "description": "10-minute 5-round body activation timer.",
+  "uuid": "body-activation@gron",
+  "shell-version": [
+    "46"
+  ],
+  "url": ""
+}

@@ -1,0 +1,9 @@
+{
+  "name": "Work Cycles",
+  "description": "Minimal 3-hour work cycle timer.",
+  "uuid": "work-cycles@gron",
+  "shell-version": [
+    "46"
+  ],
+  "url": ""
+}
